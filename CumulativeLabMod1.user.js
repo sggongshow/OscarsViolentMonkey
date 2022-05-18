@@ -4,7 +4,7 @@
 // @include     *lab/CumulativeLabValues.jsp*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version 22.02.28.5
+// @version 	22.05.17.2
 // ==/UserScript==
 //========Get Path============
 
