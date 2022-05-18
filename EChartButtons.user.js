@@ -5,7 +5,7 @@
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
 // @include     */casemgmt/forward.jsp?action=view&demographic*
-// @version     22.05.17.2
+// @version     22.05.17.5
 // ==/UserScript==
 //window.moveTo(300, 100)
 
@@ -206,7 +206,7 @@ input51.type = 'button';
 input51.value = 'Expand';
 input51.onclick = showAlert51;
 input51.setAttribute('style', 'width:80px;font-size:16px;z-index:1;position:fixed;bottom:0px;left:0px; background-color: #ffff00;');
-document.body.appendChild(input51);
+//document.body.appendChild(input51);
 function showAlert51()
 {
   $('#imgeforms5').click()
@@ -221,7 +221,7 @@ input52.type = 'button';
 input52.value = 'PMHX';
 input52.onclick = showAlert52;
 input52.setAttribute('style', 'width:80px;font-size:16px;z-index:1;position:fixed;bottom:0px;left:80px;');
-document.body.appendChild(input52);
+//document.body.appendChild(input52);
 function showAlert52()
 {
   $('#Dx > div:nth-child(3) > h3:nth-child(1) > a:nth-child(1)').click()
@@ -232,7 +232,7 @@ input53.type = 'button';
 input53.value = '+Tickler';
 input53.onclick = showAlert53;
 input53.setAttribute('style', 'width:80px;font-size:16px;z-index:1;position:fixed;bottom:30px;left:0px;background-color: #ff6600;');
-document.body.appendChild(input53);
+//document.body.appendChild(input53);
 function showAlert53()
 {
   $('#tickler > div:nth-child(2) > h3:nth-child(1) > a:nth-child(1)').click()
@@ -243,7 +243,7 @@ input54.type = 'button';
 input54.value = 'Docs';
 input54.onclick = showAlert54;
 input54.setAttribute('style', 'width:80px;font-size:16px;z-index:1;position:fixed;bottom:30px;left:80px;background-color: #476BB3;');
-document.body.appendChild(input54);
+//document.body.appendChild(input54);
 function showAlert54()
 {
   $('#docs > div:nth-child(3) > h3:nth-child(1) > a:nth-child(1)').click()
