@@ -5,12 +5,13 @@
 // @include     */casemgmt/forward.jsp?action=view&demographic*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version			22.05.17.2
+// @version			22.05.17.5
 // ==/UserScript==
 
 function main(){
-	console.log("CHECK CORTICO")
-  var checkCort = $('[class*=tw-bg-indigo-60][class*=tw-transition-colors][class*=hover:tw-bg-blue-1000]')
+	console.log("CHECK CORTICO Relocation")
+  var checkCort = $('[class*=tw-bg-indigo-60][class*=tw-transition-colors][class*=hover]')
+  //console.log(checkCort)
   if (checkCort.length>0){
     //console.log(checkCort)
     //console.log("checkCort")
