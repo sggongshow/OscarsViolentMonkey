@@ -6,7 +6,7 @@
 // @include     *ForwardDemographicTickler.do?*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version			22.05.17.2
+// @version	22.05.17.5
 // ==/UserScript==
 
 
@@ -37,6 +37,12 @@ window.addEventListener('load', function() {
   HiBut.setAttribute('style', 'width:80px;font-size:12px;padding:0px;position:fixed;top:80px;right:10; border-color:red;');
 	document.body.appendChild(HiBut);
   
+   //Default Tickler
+  var LocationAssign = $('select[name=site]')[0]
+  LocationAssign.value = 1
+  var taskAssign = $('select[name=task_assigned_to]')[0]
+  taskAssign.value = 114
+  
   
   //--------- select the textbox area so I can start typing immediately
   var textBox = $('textarea[name="textarea"]')
@@ -50,6 +56,7 @@ document.addEventListener('keydown', function(theEvent) {
 	var theCtrlKey = theEvent.ctrlKey;
 	var theShiftKey= theEvent.shiftKey;
   
+ 
   
   switch(true){
       //Acknowledge  button
