@@ -5,7 +5,7 @@
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
 // @include     */casemgmt/forward.jsp?action=view&demographic*
-// @version     22.05.17.5
+// @version     22.06.06.0
 // ==/UserScript==
 //window.moveTo(300, 100)
 
@@ -351,7 +351,7 @@ function showAlert16()
   var res = myParam.indexOf('&')
   var demo_no = myParam.substring(0, res) //alert (demo_no)
   // INSERT YOU OWN form ID (fid=??) here
-  var formPath = vPath + '/eform/efmformadd_data.jsp?fid=968&demographic_no=' + demo_no + '&parentAjaxId=eforms' + '&appointment=' + ApptNum//window.open(formPath)
+  var formPath = vPath + '/eform/efmformadd_data.jsp?fid=1182&demographic_no=' + demo_no + '&parentAjaxId=eforms' + '&appointment=' + ApptNum//window.open(formPath)
   window.open(formPath, 'Popup_Window10', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=1000,height=800,left = 312,top = 234');
 }
 
