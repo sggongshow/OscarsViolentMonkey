@@ -16,7 +16,7 @@ var observer = new MutationObserver(function (event) {
   var boxCortClass = boxCort.className //get the class information for Cortico Icon
   
   if (boxCortClass.includes("tw-left-5")==false){ //check if it has already been corrected
-    setTimeout(function(){ changeLocation(); }, 1000)
+    setTimeout(function(){ changeLocation(); }, 400)
   }
 })
 
