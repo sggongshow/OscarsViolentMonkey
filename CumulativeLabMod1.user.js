@@ -4,7 +4,7 @@
 // @include     *lab/CumulativeLabValues.jsp*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version 	22.07.22.1
+// @version 	22.07.22.2
 // ==/UserScript==
 //========Get Path============
 
@@ -364,7 +364,7 @@ function toggleTableVis(){
   
   var labGrid = $('#cumulativeLab')[0]
   //console.log("toggle" + labGrid.hidden + " to " + !labGrid.hidden)
- 	//labGrid.hidden = !labGrid.hidden
+ 	labGrid.hidden = !labGrid.hidden
 }
 //---------------
 //wait for all labs data to be loaded before modifying and putting colors around it. 
