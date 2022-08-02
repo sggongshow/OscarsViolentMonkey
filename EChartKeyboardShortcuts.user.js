@@ -5,7 +5,7 @@
 // @include        */casemgmt/forward.jsp?action=view&demographic*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version			22.05.17.2
+// @version			22.08.02.0
 // ==/UserScript==
 
 function setCookie(cname, cvalue, exdays, cpath)
@@ -70,8 +70,8 @@ document.addEventListener('keydown', function(theEvent) {
     case theAltKey && theKey==='e': //Expand left side
  		//$('#imgeforms5').click()
   		//$('#imgmeasurements5').click()
-  		$('#imgdocs5').click()
-  		$('#imglabs5').click()
+  		$('#imgdocs5')[0].click()
+  		$('#imglabs5')[0].click()
   		//$('#imgpreventions5').click()
 			break;
       
