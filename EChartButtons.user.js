@@ -5,7 +5,7 @@
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
 // @include     */casemgmt/forward.jsp?action=view&demographic*
-// @version     22.06.06.0
+// @version     22.08.03.0
 // ==/UserScript==
 //window.moveTo(300, 100)
 
@@ -83,7 +83,7 @@ input2.setAttribute('style', 'width:80px;font-size:16px;z-index:1;position:fixed
 document.body.appendChild(input2);
 function showAlert2()
 {
-  $('#menuTitleconsultation > h3:nth-child(1) > a:nth-child(1)').click()
+  $('div[id*=menuTitleconsultation] > h3:nth-child(1) > a:nth-child(1)').click()
 }
 var input3 = document.createElement('input');
 input3.type = 'button';
@@ -122,7 +122,7 @@ input5.setAttribute('style', 'width:80px;font-size:16px;z-index:1;position:fixed
 document.body.appendChild(input5);
 function showAlert5()
 {
-  $('#menuTitleeforms > h3:nth-child(1) > a:nth-child(1)').click()
+  $('div[id*=menuTitleeforms] > h3:nth-child(1) > a:nth-child(1)').click()
 } // INSERT YOU OWN MEASUREMENT UNIQUE SELECTOR
 
 var input6 = document.createElement('input');
@@ -506,3 +506,9 @@ window.addEventListener('load', function() {
 
 
 }, false);
+
+
+
+
+
+
