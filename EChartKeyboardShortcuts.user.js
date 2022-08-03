@@ -5,7 +5,7 @@
 // @include        */casemgmt/forward.jsp?action=view&demographic*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version			22.08.02.0
+// @version			22.08.03.1
 // ==/UserScript==
 
 function setCookie(cname, cvalue, exdays, cpath)
@@ -48,12 +48,14 @@ document.addEventListener('keydown', function(theEvent) {
 	switch(true){
       
      case theAltKey && theKey==='q': //Show med list
- 			$('#Rx > div:nth-child(3) > h3:nth-child(1) > a:nth-child(1)').click()
+ 			var icon = $('#Rx > div:first > div:first > h3:first > a:first')[0] // > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)')
+      icon.click()
 			break;
       
       
 		case theAltKey && theKey==='w': //Repeat Meds (Meds+)
- 			$('#Rx > div:nth-child(2) > h3:nth-child(1) > a:nth-child(1)').click()
+ 			var icon = $('div[id*=menuTitleRx] > h3:nth-child(1) > a:nth-child(1)')[0]
+      icon.click()
 			break;
       
     case theAltKey && theKey==='s': //save, sign and bill
@@ -115,21 +117,25 @@ document.addEventListener('keydown', function(theEvent) {
             }
           }
         }else{
-      		$('#preventions > div:nth-child(3) > h3:nth-child(1) > a:nth-child(1)').click()
+          var icon = $('div[id*=menuTitlepreventions] >  h3:nth-child(1) > a:nth-child(1)')[0]
+          icon.click()
         }
       	//document.getElementById("saveImg").click()
       	break
       
      	case theAltKey && theKey==='2': // new Tickler
-				$('#tickler > div:nth-child(2) > h3:nth-child(1) > a:nth-child(1)').click()
+				//$('#tickler > div:nth-child(3) > h3:nth-child(1) > a:nth-child(1)')[0].click()
+        var icon = $('div[id*=menuTitletickler] >  h3:nth-child(1) > a:nth-child(1)')[0]
+        icon.click()
       	break
       
       case theAltKey && theKey==='3': //Documents
-				 $('#docs > div:nth-child(3) > h3:nth-child(1) > a:nth-child(1)').click()
+        var icon = $('div[id*=menuTitledocs] >  h3:nth-child(1) > a:nth-child(1)')[0]
+        icon.click()
       	break
       
       case theAltKey && theKey==='4': //Diease
-     		 $('#Dx > div:nth-child(3) > h3:nth-child(1) > a:nth-child(1)').click()
+     		 //$('#Dx > div:nth-child(3) > h3:nth-child(1) > a:nth-child(1)').click()
       	break
       
       
