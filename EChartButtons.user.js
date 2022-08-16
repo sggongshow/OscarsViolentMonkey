@@ -5,7 +5,7 @@
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
 // @include     */casemgmt/forward.jsp?action=view&demographic*
-// @version     22.08.03.0
+// @version     22.08.15.0
 // ==/UserScript==
 //window.moveTo(300, 100)
 
@@ -180,7 +180,7 @@ function showAlert8()
   var myParam = location.search.split('demographicNo=') [1] //alert(myParam)
   var res = myParam.indexOf('&')
   var demo_no = myParam.substring(0, res) //alert (demo_no)
-  var formPath = vPath + '/eform/efmformadd_data.jsp?fid=923&demographic_no=' + demo_no + '&appointment=' + ApptNum// INSERT YOU OWN form ID (fid=??) here
+  var formPath = vPath + '/eform/efmformadd_data.jsp?fid=89615&demographic_no=' + demo_no + '&appointment=' + ApptNum// INSERT YOU OWN form ID (fid=??) here
   //alert(formPath)
   window.open(formPath,'Popup_Window4', 'width=800,height=800,left = 0,top = 0')
 }
