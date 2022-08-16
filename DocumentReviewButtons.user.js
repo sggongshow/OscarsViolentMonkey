@@ -130,14 +130,10 @@ if (window.location.pathname.includes("labDisplay.jsp")){
   //console.log(OGLabelText.includes("("))
   if (OGLabelText.includes("(") == false){
      //console.log(OGLabelText.includes("test"))
-    OGLabelText = OGLabelText.split(":")[1]
-    //console.log(OGLabelText)
-    OGLabelText = OGLabelText.substring(1)
-     //console.log(OGLabelText)
+    OGLabelText = OGLabelText.substring(OGLabelText.indexOf(":")+1)
   }else{
     OGLabelText=""
   }
-
   inputTextbox.value = OGLabelText
 
 
