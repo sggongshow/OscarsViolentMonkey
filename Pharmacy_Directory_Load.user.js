@@ -5,7 +5,7 @@
 // @include     *oscarRx/SelectPharmacy2.jsp*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version     22.07.01.1
+// @version     22.07.01.2
 // ==/UserScript==
 
 //alert("test")
@@ -30,7 +30,7 @@ window.addEventListener('load', function() {
   console.log("parse csv")
   alert("Close SCRIPT if you don't want pharmacy loader to run");
   var url = "https://raw.githubusercontent.com/sggongshow/OscarsViolentMonkey/main/Pharmacy_List1-50.csv";
-  //var url = "https://github.com/sggongshow/OscarsViolentMonkey/blob/main/Pharmacy_List50UPV2.csv";
+  //var url = "https://raw.githubusercontent.com/sggongshow/OscarsViolentMonkey/main/Pharmacy_List50UPV2.csv";
   
   var request = new XMLHttpRequest();  
   request.open("GET", url, false);   
