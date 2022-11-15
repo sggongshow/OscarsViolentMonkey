@@ -6,7 +6,7 @@
 // @grant       GM_addStyle
 // @grant 	GM_openInTab
 // @include     */casemgmt/forward.jsp?action=view&demographic*
-// @version     22.09.26.0
+// @version     22.11.14.0
 // ==/UserScript==
 //window.moveTo(300, 100)
 //changelog 
