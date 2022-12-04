@@ -92,6 +92,7 @@ function afterLoad(){
   	console.log("test")
 		nameBox = iframe.contents().find('#pharmacyName')[0]
     addressBox = iframe.contents().find('#pharmacyAddress')[0]
+	cityBox = iframe.contents().find('#pharmacyCity')[0]
   	phoneBox = iframe.contents().find("#pharmacyPhone1")[0]
     faxBox = iframe.contents().find('#pharmacyFax')[0]
   	var submitButton = iframe.contents().find('input[type="button"][value="Submit"][onclick*="savePh"]')
@@ -107,6 +108,7 @@ function afterLoad(){
 
     nameBox.value = name
     addressBox.value = address
+	cityBox.value = address.split(",")[0]
     phoneBox.value = phone
   	faxBox.value = fax
   
