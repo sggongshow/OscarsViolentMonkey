@@ -1,40 +1,43 @@
 // ==UserScript==
 // @name        Pharmacy Directory LoaderVersion 2
 // @namespace   GongOscar
-// @description Constant EForm 
+// @description Constant EForm
 // @include     *oscarRx/SelectPharmacy2.jsp*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version     22.07.01.2
+// @version     22.12.04.0
 // ==/UserScript==
 
 //alert("test")
-
+//Changelog
+//Dec 4,2022 - changed so city and address both contain full address so can still search by city. 
+//about 15 pharmacies are broken so need to delete manually or run sql. not worth fixing: Delete From pharmacyInfo where phone1 like '%a%';   
+//
 
 let DataArray = []
 var name
-var address 
+var address
 var phone
 var fax
 var nameBox
 var addressBox
 var phoneBox
-var faxBox 
+var faxBox
 var iframe
 var pharmacyFormObj
 var PharmacyID
 var test
  console.log("testv")
-//GET THE DATA INITIALLY 
+//GET THE DATA INITIALLY
 window.addEventListener('load', function() {
   console.log("parse csv")
   alert("Close SCRIPT if you don't want pharmacy loader to run");
-  var url = "https://raw.githubusercontent.com/sggongshow/OscarsViolentMonkey/main/Pharmacy_List1-50.csv";
-  //var url = "https://raw.githubusercontent.com/sggongshow/OscarsViolentMonkey/main/Pharmacy_List50UPV2.csv";
-  
-  var request = new XMLHttpRequest();  
-  request.open("GET", url, false);   
-  request.send(null);  
+  //var url = "https://raw.githubusercontent.com/sggongshow/OscarsViolentMonkey/main/Pharmacy_List1-50.csv";
+  var url = "https://raw.githubusercontent.com/sggongshow/OscarsViolentMonkey/main/Pharmacy_List50UPV2.csv";
+
+  var request = new XMLHttpRequest();
+  request.open("GET", url, false);
+  request.send(null);
 
   DataArray = new Array();
   var jsonObject = request.responseText.split(/\r?\n|\r/);
@@ -43,7 +46,7 @@ window.addEventListener('load', function() {
   }
   // Retrived data from csv file content
   console.log(DataArray);
-	
+
   main()
 
 }, false);
@@ -55,7 +58,7 @@ function newaddPharmacy() {
   	console.log(phoneBox.value)
   	console.log(faxBox.value)
 		console.log("Newaddpharm")
-  
+
 	  var data = pharmacyFormObj.serialize();
     console.log(data)
 	  $.post("/oscar/oscarRx/managePharmacy.do?method=add",
@@ -71,7 +74,7 @@ function newaddPharmacy() {
 			},
 			"json"
 		);
-  	
+
   }
 
 
@@ -83,20 +86,20 @@ function consoleLogger(text){
 
 function afterLoad(){
 		console.log("afterLoad Start")
-  
+
   	var iframeOG = document.getElementById("lightwindow_iframe")
     iframe = $("#lightwindow_iframe")
     iframeOG.contentWindow.confirm= function(){ return true;}
 
-    
+
   	console.log("test")
 		nameBox = iframe.contents().find('#pharmacyName')[0]
     addressBox = iframe.contents().find('#pharmacyAddress')[0]
-	cityBox = iframe.contents().find('#pharmacyCity')[0]
+	  cityBox = iframe.contents().find('#pharmacyCity')[0]
   	phoneBox = iframe.contents().find("#pharmacyPhone1")[0]
     faxBox = iframe.contents().find('#pharmacyFax')[0]
   	var submitButton = iframe.contents().find('input[type="button"][value="Submit"][onclick*="savePh"]')
-    
+
     pharmacyFormObj = iframe.contents().find('#pharmacyForm')
   	PharmacyID = iframe.contents().find('#pharmacyID')
     console.log(pharmacyFormObj)
@@ -104,14 +107,14 @@ function afterLoad(){
   	//console.log(addressBox)
   	//console.log(phoneBox)
   	//console.log(faxBox)
-    
+
 
     nameBox.value = name
     addressBox.value = address
-	cityBox.value = address.split(",")[0]
+	  cityBox.value = address
     phoneBox.value = phone
   	faxBox.value = fax
-  
+
     newaddPharmacy()
    	console.log("overlay closed")
   	//return 1
@@ -130,12 +133,12 @@ function OverlaySeen(){
   console.log(PharmBoxVis)
  	if (PharmBoxVis == "block"){//we want it to match
     	console.log("YES VISIBLE")
-       return "visible" 
+       return "visible"
     } else{
       sleep(2000)
       OverlayThere()
     }
-   
+
 }
 
 async function fillDetails() {
@@ -144,28 +147,28 @@ async function fillDetails() {
       function checkFlag(){
         //console.log("test")
         var PharmBox = $('#lightwindow')
-      	var PharmBoxVis = PharmBox.css('display')	
+      	var PharmBoxVis = PharmBox.css('display')
         iframe = $("#lightwindow_iframe")
         iframeLoad = $("#lightwindow_loading")
-        var PharmLoadVis = iframeLoad.css('display')	
+        var PharmLoadVis = iframeLoad.css('display')
         //console.log(PharmBoxVis + "  " + iframe.length + "  " + PharmLoadVis)
         if ((PharmBoxVis != "block") && (iframe.length != 1 ) && (PharmLoadVis = "none")){//Reasons to keep waiting
           //console.log(PharmBoxVis + "  " + iframe.length + "  " + PharmLoadVis)
           //console.log("Not seen")
-          //setTimeout(function(){ fillDetails();}, 2000);//wait 50 millisecnds then recheck  
+          //setTimeout(function(){ fillDetails();}, 2000);//wait 50 millisecnds then recheck
           setTimeout(checkFlag, 15000);
           //return
-        }else{ 
+        }else{
           console.log("resolved " + name)
           console.log(PharmBoxVis + "  " + iframe.length + "  " + PharmLoadVis)
           //sleep(5000).
           afterLoad()
-          resolve('resolved');  
-        }    
+          resolve('resolved');
+        }
       }//checkflag
       checkFlag()
     });//Promise
-      /*             
+      /*
  		console.log("Visible")
     iframe = $("#lightwindow_iframe")
     iframe.load(function () {
@@ -174,8 +177,8 @@ async function fillDetails() {
     });
     console.log("resolved")
     /*/
-    
-    
+
+
     //setTimeout(function(){ afterLoad() },5000);
 		//setTimeout(function(){phoneBox = $('#lightwindow_iframe').contents().find('#pharmacyPhone1');console.log(phoneBox) },5000);
 		return
@@ -189,8 +192,8 @@ async function main(){
 
     //unsafeWindow.addPharmacy();
   	//console.log("tester")
-  
-  
+
+
   //console.log(iframe)
  	for(let i = 0; i < DataArray.length; i++){
     name = DataArray[i][0]
@@ -202,19 +205,19 @@ async function main(){
     test = await fillDetails()
     console.log("FINISHED LINE" + i )
     //ActiveRun()
-    
+
     //fillDetails()
     }
-    
-		
-   
+
+
+
   	console.log("finished")
-  	
+
   	//setTimeout(function(){fillDetails();},9000);
     //setTimeout(function(){consoleLogger("end test")},10000);
 
-		
-		
-    
+
+
+
     //setTimeout(, 30000);
 }
