@@ -6,10 +6,11 @@
 // @grant       GM_addStyle
 // @grant 	GM_openInTab
 // @include     */casemgmt/forward.jsp?action=view&demographic*
-// @version     22.11.14.0
+// @version     22.12.08.0
 // ==/UserScript==
 //window.moveTo(300, 100)
 //changelog 
+//22.12.08.0 - lab grid dead. looonnng wait due to well health. disabled
 //22.09.26.0 - updated mammogram fid
 
 
@@ -285,7 +286,7 @@ function showAlert11()
 
 var input12 = document.createElement('input');
 input12.type = 'button';
-input12.value = 'Lab Grid';
+input12.value = '------';
 input12.onclick = showAlert12;
 input12.setAttribute('style', 'width:80px;font-size:16px;z-index:1;position:fixed;bottom:120px;right:60px; ');
 document.body.appendChild(input12);
