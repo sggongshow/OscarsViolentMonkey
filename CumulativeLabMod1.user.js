@@ -4,8 +4,11 @@
 // @include     *lab/CumulativeLabValues.jsp*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version 	22.07.22.5
+// @version 	22.12.08.0
 // ==/UserScript==
+
+//Changelog Dec 2022 22.12.08.0
+//- Broken due to long delay with DisplayLabValue.jsp about 10 seconds per item. Well Health changes. no delay on custom oscar
 //========Get Path============
 
 
