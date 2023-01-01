@@ -1,14 +1,16 @@
 // ==UserScript==
 // @name        Tickler Efficiency
 // @namespace   GongOscar
-// @description Constant EForm Submit and Print button locations
+// @description Tickler default task and selects text box
 // @include     */ticklerAdd.jsp?*
 // @include     *ForwardDemographicTickler.do?*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version	22.05.17.5
+// @version	22.12.31.0
 // ==/UserScript==
 
+//Changelog
+//Dec 31 2022 - make it default to surrey and TCI
 
 //wait window load first
 
@@ -39,9 +41,9 @@ window.addEventListener('load', function() {
   
    //Default Tickler
   var LocationAssign = $('select[name=site]')[0]
-  LocationAssign.value = 1
+  LocationAssign.value = 6
   var taskAssign = $('select[name=task_assigned_to]')[0]
-  taskAssign.value = 114
+  taskAssign.value = 34
   
   
   //--------- select the textbox area so I can start typing immediately
