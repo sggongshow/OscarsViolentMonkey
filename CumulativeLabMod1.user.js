@@ -464,7 +464,7 @@ function removeUnwanted() {
 function LoadMatchedArr(ArrayToLoad){   //myLabArray is default
     console.log("addinglabs to profile")
     //console.log(ArrayToLoad)
-    //toggleTableVis()
+    toggleTableVis()
     //for(var i=0; i<2; i++){ ///testing purposes shortened vesion
   	for(var i=0; i<ArrayToLoad.length; i++){
       //console.log(ArrayToLoad[i])
