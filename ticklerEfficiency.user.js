@@ -6,15 +6,16 @@
 // @include     *ForwardDemographicTickler.do?*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version	22.12.31.0
+// @version	23.01.03.0
 // ==/UserScript==
 
 //Changelog
+//Jan 3, 2022 - change ID to surrey ID for tickling self
 //Dec 31 2022 - make it default to surrey and TCI
 
 //wait window load first
 
-var myIDNum = '37250'
+var myIDNum = '133'
 
 window.addEventListener('load', function() {
   
