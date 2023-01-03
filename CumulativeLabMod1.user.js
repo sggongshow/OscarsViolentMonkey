@@ -4,7 +4,7 @@
 // @include     *lab/CumulativeLabValues.jsp*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version 	22.12.08.1
+// @version 	23.01.03.1
 // ==/UserScript==
 //========Get Path============
 
@@ -805,7 +805,7 @@ function SortArea(){
   }
 
   checkRange()
-  //toggleTableVis()
+  toggleTableVis()
 }
 ///Check if the result is within range and color it pink if it is out of range
 function checkRange(){
