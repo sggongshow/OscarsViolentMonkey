@@ -5,7 +5,7 @@
 // @include     */ticklerMain.jsp*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version			23.01.16.0
+// @version			23.01.17.0
 // ==/UserScript==
 
 
@@ -43,9 +43,10 @@ window.addEventListener('load', function() {
 
 
 function honeyButFunc(){
-  var newURL = (urlPath + "assignedTo=" + HoneyID + "&Submit=Create+Report&sort_order=desc&sort_column=priority")
-  console.log(newURL)
+  var newURL = urlPath + "assignedTo=" + HoneyID + "&Submit=Create+Report&sort_order=desc&sort_column=priority"
+  //console.log(newURL)
   window.location.href = newURL
+}
 
 function TCISurreyButFunc(){
   var newURL = (urlPath + "assignedTo=" + TCISurreyID + "&Submit=Create+Report&sort_order=desc&sort_column=priority")
