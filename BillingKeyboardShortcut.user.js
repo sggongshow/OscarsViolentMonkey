@@ -11,10 +11,10 @@
 // @include     *formwcb.do?*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version	    23.01.23.1
+// @version	    23.01.23.2
 // ==/UserScript==
 
-//23.01.23.1: added contracted hours shift codes to auto populate (97570) the start and end times
+//23.01.23.2: added contracted hours shift codes to auto populate (97570) the start and end times
 
 //wait window load first
 
@@ -40,27 +40,17 @@ document.addEventListener('keydown', function(theEvent) {
     case theAltKey && theKey==='1':
       //console.log("alt1 pressed")
       //console.log(BillingCodeArray.length)
-
+      var find97570 = true
       for (let element of BillingCodeArray){
         //console.log(element.value)
         if (element.value.includes("97570")){
           //console.log("97570 code found")
           autoTimeInput(element)
+          break
         }
       };
 
-      var subButton = $('input[type="submit"][value="Continue"][name="Submit"]')
-      //console.log(subButton)
-
-      if (subButton.attr("value")==null){
-        subButton = $('input[type="submit"][value*="Save"][value*="Bill"][name="submit"]')
-      }
-      if (subButton.attr("value")==null){
-        subButton = $('input[type="submit"][value="Confirm"][name="update"]')
-      }
-
-      //console.log(subButton.attr("value"))
-      subButton.click()
+      hitSubmit()
 			break;
 
     default:
@@ -70,6 +60,7 @@ document.addEventListener('keydown', function(theEvent) {
 
 }, true);
 
+// add the automatic hours when the hours submission code is seen of  97570
 function autoTimeInput(serviceCodeElement){
   //console.log("autotime input")
   var serviceCodeUnitID = serviceCodeElement.id + "_unit"
@@ -79,13 +70,42 @@ function autoTimeInput(serviceCodeElement){
   var hours = Number(serviceCodeUnitElement.value)/4;
 
   var startHour = new Date(2022, 0, 1, 9, 0, 0)
-  var startHourPrint = moment(startHour).format('HH:mm')
+  var startHourPrint = moment(startHour).format('HHmm')
 
   var endHour = moment(startHour).add(hours, 'hours')
-  var endHourPrint = moment(endHour).format('HH:mm')
+  var endHourPrint = moment(endHour).format('HHmm')
 
-  $("[id='serviceStartTime']")[0].value = startHourPrint
-  $("[id='serviceEndTime']")[0].value = endHourPrint
+  var startTimeBox = $("[id='serviceStartTime']")[0]
+  var endTimeBox = $("[id='serviceEndTime']")[0]
+  startTimeBox.value = startHourPrint
+  endTimeBox.value = endHourPrint
 
+  //this part is necessary for the time inputs to be registered properly for the next actuall billing page. otherwise it sometimes errors the times
+  //such as error of start time of 09:0009:00 instead of just 09:00 once
+  var timeClick = $("[class='input-group-addon']")
+  for (let button of timeClick){
+    console.log(button)
+    button.click()
+    button.click()
+  };
+
+
+  hitSubmit()
+
+}
+
+//hit the submit button
+function hitSubmit(){
+  var subButton = $('input[type="submit"][value="Continue"][name="Submit"]')
+  //console.log("hitsubmit")
+
+  if (subButton.attr("value")==null){
+    subButton = $('input[type="submit"][value*="Save"][value*="Bill"][name="submit"]')
+  }
+  if (subButton.attr("value")==null){
+    subButton = $('input[type="submit"][value="Confirm"][name="update"]')
+  }
+
+  subButton.click()
 }
 
