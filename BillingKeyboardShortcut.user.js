@@ -11,10 +11,10 @@
 // @include     *formwcb.do?*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version	    23.01.23.0
+// @version	    23.01.23.1
 // ==/UserScript==
 
-//23.01.23.0: added contracted hours shift codes to auto populate (97570) the start and end times
+//23.01.23.1: added contracted hours shift codes to auto populate (97570) the start and end times
 
 //wait window load first
 
@@ -49,9 +49,6 @@ document.addEventListener('keydown', function(theEvent) {
         }
       };
 
-
-
-
       var subButton = $('input[type="submit"][value="Continue"][name="Submit"]')
       //console.log(subButton)
 
@@ -63,7 +60,7 @@ document.addEventListener('keydown', function(theEvent) {
       }
 
       //console.log(subButton.attr("value"))
-      //subButton.click() -temp
+      subButton.click()
 			break;
 
     default:
