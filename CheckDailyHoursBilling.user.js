@@ -5,7 +5,7 @@
 // @include     *providercontrol.jsp?*displaymode=day*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version	    23.01.24.0
+// @version	    23.01.31.0
 // ==/UserScript==
 
 var providerID = 0
@@ -46,8 +46,8 @@ window.addEventListener('load', function() {
 function main(){
   //console.log('run main')
   ///get the provider ID of the person on visble list regardless if provider that is logged in
-  providerID = document.querySelectorAll('[title="Week view"]')[0].getAttribute("onclick").split("'")[1]
-  //console.log(providerID)
+  providerID = document.querySelectorAll('[title="zoom view"]')[0].getAttribute("onclick").split("'")[1]
+  console.log(providerID)
 
   //Append the button
   var AppendingParagraph = $("#ivoryBar")[0].children[1]
