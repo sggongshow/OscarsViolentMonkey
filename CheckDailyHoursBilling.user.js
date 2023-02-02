@@ -3,10 +3,13 @@
 // @namespace   GongOscar
 // @description Check if the daily 97570 billing has been submitted. Easily seen on day sheet
 // @include     *providercontrol.jsp?*displaymode=day*
+// @include     *provideradminday.jsp?*displaymode=day*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version	    23.01.31.0
+// @version	    23.02.02.0
 // ==/UserScript==
+
+//23.02.02.0 : updated @include another .jsp that oscar sometimes uses
 
 var providerID = 0
 var baseURL
