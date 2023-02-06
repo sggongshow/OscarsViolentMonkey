@@ -6,9 +6,10 @@
 // @include     *provideradminday.jsp?*displaymode=day*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version	    23.02.02.0
+// @version	    23.02.06.0
 // ==/UserScript==
 
+//23.02.06.0: fixed billing date so it's same date as visit, not current date
 //23.02.02.0 : updated @include another .jsp that oscar sometimes uses
 
 var providerID = 0
@@ -131,10 +132,11 @@ function billingButtonClick(){
   //Get the name of patient and change name into correct format for URL requirements
   let NameFormat = firstPt.getAttribute("title").split("\n")[0].toUpperCase()
   NameFormat = NameFormat.replace(',',"%2C")
+  let apptDate = document.querySelectorAll('[class="dateAppointment"]')[0].innerText.split(',')[1].trim()
 
   //URL for billing of first patient on list
   var newURL = vPath + "billing.do?billRegion=BC&billForm=GP&hotclick=&appointment_no=0&bNewForm=1&status=t" + "&user_no=" + providerID
-  newURL = newURL + "&demographic_no=" + demNum + "&demographic_name=" + NameFormat
+  newURL = newURL + "&demographic_no=" + demNum + "&demographic_name=" + NameFormat + "&appointment_date=" + apptDate
 
   window.open(newURL,'Billing Window', 'left = 0,top = 0')
 }
