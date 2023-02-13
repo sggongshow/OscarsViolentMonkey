@@ -14,6 +14,8 @@
 
 //wait window load first
 
+var myIDNum = '190'
+
 window.addEventListener('load', function() {
 
   var compBut = document.createElement('input');
