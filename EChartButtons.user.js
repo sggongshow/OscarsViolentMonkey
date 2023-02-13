@@ -6,10 +6,12 @@
 // @grant       GM_addStyle
 // @grant 	GM_openInTab
 // @include     */casemgmt/forward.jsp?action=view&demographic*
-// @version     23.01.10.1
+// @version     23.02.12.0
 // ==/UserScript==
 //window.moveTo(300, 100)
+//
 //changelog 
+//23.02.12.0 - re-enabled lab grid for quipo
 //23.01.10.1 - changed to surrey imaging req and lifelabs
 //22.12.08.0 - lab grid dead. looonnng wait due to well health. disabled
 //22.09.26.0 - updated mammogram fid
@@ -287,7 +289,7 @@ function showAlert11()
 
 var input12 = document.createElement('input');
 input12.type = 'button';
-input12.value = '------';
+input12.value = 'Display Labs';
 input12.onclick = showAlert12;
 input12.setAttribute('style', 'width:80px;font-size:16px;z-index:1;position:fixed;bottom:120px;right:60px; ');
 document.body.appendChild(input12);
