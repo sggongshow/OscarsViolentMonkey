@@ -5,11 +5,10 @@
 // @include     */ticklerMain.jsp*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version			23.02.12.0
+// @version			23.01.17.0
 // ==/UserScript==
 
-//changelog
-//23.02.12.0: quipo update: changed appending paragraph
+
 
 var HoneyID = 135
 var TCISurreyID = 34
@@ -18,9 +17,8 @@ var urlPath = ('https://' + location.host + window.location.pathname + '?')
 
 window.addEventListener('load', function() {
 
-  var AppendingParagraph = $("[name=serviceform]")[0]
-  console.log(AppendingParagraph)
-  //AppendingParagraph = AppendingParagraph.parentElement.previousElementSibling
+  var AppendingParagraph = $(".HelpAboutLogout")[0]
+  AppendingParagraph = AppendingParagraph.parentElement.previousElementSibling
 
   var honeyBut = document.createElement('input');
   honeyBut.type = 'button';
