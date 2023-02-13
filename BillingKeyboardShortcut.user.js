@@ -11,10 +11,10 @@
 // @include     *formwcb.do?*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version	    23.02.12.0
+// @version	    23.02.12.1
 // ==/UserScript==
 
-//23.02.12.0: modified for quipo
+//23.02.12.1: modified for quipo
 //23.01.23.2: added contracted hours shift codes to auto populate (97570) the start and end times
 
 //wait window load first
