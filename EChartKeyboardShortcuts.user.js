@@ -8,10 +8,6 @@
 // @version			22.08.03.1
 // ==/UserScript==
 
-//changelog
-//23.02.12.1: quipo update: sign and save button
-
-
 function setCookie(cname, cvalue, exdays, cpath)
 {
   var d = new Date();
@@ -36,7 +32,7 @@ function getCookie(cname)
 var myWindow = ''
 var elements = (window.location.pathname.split('/', 2))
 firstElement = (elements.slice(1)) //alert(firstElement)
-vPath = ('https://' + location.host + '/' + firstElement + '//')
+vPath = ('https://' + location.host + '/' + firstElement + '//') 
 
 document.addEventListener('keydown', function(theEvent) {
 	//theEvent.stopPropagation();
@@ -50,29 +46,29 @@ document.addEventListener('keydown', function(theEvent) {
 	//var theDownKey= theEvent.PgDnKey;
 
 	switch(true){
-
+      
      case theAltKey && theKey==='q': //Show med list
  			var icon = $('#Rx > div:first > div:first > h3:first > a:first')[0] // > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)')
       icon.click()
 			break;
-
-
+      
+      
 		case theAltKey && theKey==='w': //Repeat Meds (Meds+)
  			var icon = $('div[id*=menuTitleRx] > h3:nth-child(1) > a:nth-child(1)')[0]
       icon.click()
 			break;
-
+      
     case theAltKey && theKey==='s': //save, sign and bill
- 			var signsave = $('[title="Sign Save & Bill"]')[0]
+ 			var signsave = $('input[title="Sign Save & Bill"]')[0]
      			signsave.click()
 			break;
-
-
+      
+		
     case theAltKey && theKey==='t': //new Tickler
  			//$('#tickler > div:nth-child(2) > h3:nth-child(1) > a:nth-child(1)').click()
 			break;
-
-
+       
+     
     case theAltKey && theKey==='e': //Expand left side
  		//$('#imgeforms5').click()
   		//$('#imgmeasurements5').click()
@@ -80,11 +76,11 @@ document.addEventListener('keydown', function(theEvent) {
   		$('#imglabs5')[0].click()
   		//$('#imgpreventions5').click()
 			break;
-
+      
     case theAltKey && theKey==='f': //Medical Hx
  			$('a[href="#"][onclick*="showIssueHistory"][onclick*="61\')"]')[0].click()
 			break;
-
+       
       /*
     case theAltKey && theKey==='1': //Imaging
  			var myParam = location.search.split('demographicNo=') [1] //alert(myParam)
@@ -94,8 +90,8 @@ document.addEventListener('keydown', function(theEvent) {
   		var formPath = vPath + '/eform/efmformadd_data.jsp?fid=370&demographic_no=' + demo_no + '&parentAjaxId=eforms' //alert(formPath)
   		window.open(formPath, 'Popup_Window', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=1000,height=800,left = 312,top = 234');
 			break;
-
-
+      
+      
     case theAltKey && theKey==='2': //Labs
  			var myParam = location.search.split('demographicNo=') [1] //alert(myParam)
   		var res = myParam.indexOf('&')
@@ -106,16 +102,16 @@ document.addEventListener('keydown', function(theEvent) {
   		window.open(formPath, 'Popup_Window', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=1000,height=800,left = 312,top = 234');
 			break;
       */
-
+      
      	case theAltKey && theKey==='1': //Preventions or Save button
       	//---- Preventions tab
       	var checkHistoryPopUp= $('#showEditNote')[0].style.display
-
+        
       	if (checkHistoryPopUp == "table"){
-
+          
           var saveNoteBut = $('[type="image"][title*="Sign"][title*="Save"][src*="note-save"]')
           //console.log(saveNoteBut)
-          for (var i=0; i < saveNoteBut.length;i++){
+          for (var i=0; i < saveNoteBut.length;i++){	
             if(saveNoteBut[i].parentElement.parentElement.id.includes("Issue")==true){
             	saveNoteBut[i].click()
             }
@@ -126,26 +122,26 @@ document.addEventListener('keydown', function(theEvent) {
         }
       	//document.getElementById("saveImg").click()
       	break
-
+      
      	case theAltKey && theKey==='2': // new Tickler
 				//$('#tickler > div:nth-child(3) > h3:nth-child(1) > a:nth-child(1)')[0].click()
         var icon = $('div[id*=menuTitletickler] >  h3:nth-child(1) > a:nth-child(1)')[0]
         icon.click()
       	break
-
+      
       case theAltKey && theKey==='3': //Documents
         var icon = $('div[id*=menuTitledocs] >  h3:nth-child(1) > a:nth-child(1)')[0]
         icon.click()
       	break
-
+      
       case theAltKey && theKey==='4': //Diease
      		 //$('#Dx > div:nth-child(3) > h3:nth-child(1) > a:nth-child(1)').click()
       	break
-
-
+      
+      
   		default:
       break;
 
 	}
 }, true);
-
+  
