@@ -6,10 +6,9 @@
 // @include     *provideradminday.jsp?*displaymode=day*
 // @require     https://code.jquery.com/jquery-3.6.0.js
 // @grant       GM_addStyle
-// @version	    23.02.12.0
+// @version	    23.02.06.0
 // ==/UserScript==
 
-//23.02.12.0: quipo update: changed URL details so provider info + date are accurate
 //23.02.06.0: fixed billing date so it's same date as visit, not current date
 //23.02.02.0 : updated @include another .jsp that oscar sometimes uses
 
@@ -55,7 +54,7 @@ function main(){
   console.log(providerID)
 
   //Append the button
-  var AppendingParagraph = $(".infirmaryView")[0]
+  var AppendingParagraph = $("#ivoryBar")[0].children[1]
 	AppendingParagraph.appendChild(checkButton);
   realCheckBilling()
 }
@@ -136,11 +135,9 @@ function billingButtonClick(){
   let apptDate = document.querySelectorAll('[class="dateAppointment"]')[0].innerText.split(',')[1].trim()
 
   //URL for billing of first patient on list
-  var newURL = vPath + "billing.do?billRegion=BC&billForm=GP&hotclick=&appointment_no=0&bNewForm=1&status=t" + "&user_no=" + providerID + "&apptProvider_no=" + providerID
+  var newURL = vPath + "billing.do?billRegion=BC&billForm=GP&hotclick=&appointment_no=0&bNewForm=1&status=t" + "&user_no=" + providerID
   newURL = newURL + "&demographic_no=" + demNum + "&demographic_name=" + NameFormat + "&appointment_date=" + apptDate
 
   window.open(newURL,'Billing Window', 'left = 0,top = 0')
 }
-
-//billing.do?billRegion=BC&billForm=GP&hotclick=&demographic_name=Liu%2CXiao&status=t&demographic_no=48873&providerview=133&user_no=133&apptProvider_no=133&appointment_date=2023-2-13&start_time=09:00:00&bNewForm=1
 
