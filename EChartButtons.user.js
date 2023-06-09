@@ -6,10 +6,11 @@
 // @grant       GM_addStyle
 // @grant 	GM_openInTab
 // @include     */casemgmt/forward.jsp?action=view&demographic*
-// @version     23.01.10.1
+// @version     23.06.09.1
 // ==/UserScript==
 //window.moveTo(300, 100)
 //changelog 
+//23.06.09.1 - changed date change length to 40 char from 20. 
 //23.01.10.1 - changed to surrey imaging req and lifelabs
 //22.12.08.0 - lab grid dead. looonnng wait due to well health. disabled
 //22.09.26.0 - updated mammogram fid
@@ -474,7 +475,7 @@ function main(){
   var year = todayArr[3]
   var newDateString = '[' + day + '-' + month + '-' + year + ' :' + noteExtra
   
-  if (alreadyWriting.length < 20){
+  if (alreadyWriting.length < 40){
     console.log("Note is considered blank")
 	  newestNote.value = newDateString
   }
